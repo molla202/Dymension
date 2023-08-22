@@ -1,9 +1,13 @@
 # Dymension
 ![1500x500](https://user-images.githubusercontent.com/91562185/234884978-f1a6b9f1-5939-422c-af5d-ca66a9feb758.jpg)
 
-# sistem özellikleri
-4cpu 8 ram
-## ÖDÜLSÜZDÜR
+## Sistem Gereksinimleri
+| Bileşenler | Minimum Gereksinimler | 
+| ------------ | ------------ |
+| CPU |	4|
+| RAM	| 8+ GB |
+| Storage	| 500 GB SSD |
+
 
 # update ve kütüphane kuruyoruz
 ```
@@ -12,9 +16,10 @@ sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -
 ```
 # go kuruyoruz
 ```
-wget -O go_install.sh https://raw.githubusercontent.com/itrocket-team/testnet_guides/main/utils/go_install.sh && chmod +x go_install.sh && ./go_install.sh
-source ~/.bash_profile
-go version
+sudo rm -rvf /usr/local/go/
+wget https://golang.org/dl/go1.19.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
+rm go1.19.3.linux-amd64.tar.gz
 ```
 
 
@@ -22,31 +27,30 @@ go version
 ```
 echo "export WALLET="cüzdan-adı"" >> $HOME/.bash_profile
 echo "export MONIKER="node-adı"" >> $HOME/.bash_profile
-echo "export DYMENSION_CHAIN_ID="35-C"" >> $HOME/.bash_profile
-echo "export DYMENSION_PORT="32"" >> $HOME/.bash_profile
+echo "export DYMENSION_CHAIN_ID="froopyland_100-1"" >> $HOME/.bash_profile
+echo "export DYMENSION_PORT="33"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 
 cd $HOME
 rm -rf dymension
-git clone https://github.com/dymensionxyz/dymension.git --branch v0.2.0-beta
+git clone https://github.com/dymensionxyz/dymension.git --branch v1.0.2-beta
 cd dymension
 make install
 
 
 dymd config node tcp://localhost:${DYMENSION_PORT}657
-dymd config keyring-backend test
-dymd config chain-id 35-C
-dymd init molla202 --chain-id 35-C
+dymd config chain-id froopyland_100-1
+dymd init $MONIKER --chain-id froopyland_100-1
 
 
-wget -O $HOME/.dymension/config/genesis.json https://testnet-files.itrocket.net/dymension/genesis.json
-wget -O $HOME/.dymension/config/addrbook.json https://testnet-files.itrocket.net/dymension/addrbook.json
+wget -O genesis.json https://raw.githubusercontent.com/molla202/Dymension-Froopyland/main/genesis.json --inet4-only
+mv genesis.json ~/.dymension/config
 
+wget -O addrbook.json https://raw.githubusercontent.com/molla202/Dymension-Froopyland/main/addrbook.json --inet4-only
+mv addrbook.json ~/.dymension/config
 
-SEEDS="c26dc8486e8c4817e154812462993ce562cda221@dymension-testnet-seed.itrocket.net:32656"
-PEERS="adf394846dc942b1fd03f6e310eda60b5eda7848@dymension-testnet-peer.itrocket.net:32656"
-sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.dymension/config/config.toml
+sed -i 's/seeds = ""/seeds = "284313184f63d9f06b218a67a0e2de126b64258d@seeds.silknodes.io:26157,92308bad858b8886e102009bbb45994d57af44e7@rpc-t.dymension.nodestake.top:666,ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@testnet-seeds.polkachu.com:20556"/' ~/.dymension/config/config.toml
 
 
 sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${DYMENSION_PORT}317\"%;
@@ -90,13 +94,10 @@ WantedBy=multi-user.target
 EOF
 
 
-dymd tendermint unsafe-reset-all --home $HOME/.dymension
-curl https://testnet-files.itrocket.net/dymension/snap_dymension.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.dymension
-
 
 sudo systemctl daemon-reload
 sudo systemctl enable dymd
-sudo systemctl restart dymd && sudo journalctl -u dymd -f
+sudo systemctl restart dymd && sudo journalctl -u dymd -fo cat
 ```
 # cüzdan olusturuyoruz yada import ediyoruz
 ```
@@ -111,9 +112,25 @@ dymd tx staking create-validator \
   --amount 1000000udym \
   --from $WALLET \
   --commission-max-change-rate "0.01" \
-  --commission-max-rate "0.2"   --commission-rate "0.05" \
+  --commission-max-rate "0.2" \ 
+  --commission-rate "0.05" \
   --min-self-delegation "1" \
   --pubkey  $(dymd tendermint show-validator) \
   --moniker $MONIKER \
-  --chain-id 35-C
+  --chain-id froopyland_100-1 \
+  -y
   ```
+## delege
+```
+dymd tx staking delegate valoper-adres 450000000udym --from cüzdan-adı --chain-id froopyland_100-1 --gas-adjustment 1.8 -y
+```
+## Silme Kodu
+ ```
+sudo systemctl stop dymd
+sudo systemctl disable dymd
+sudo rm -rf /etc/systemd/system/dymd.service
+sudo rm $(which dymension)
+sudo rm -rf $HOME/.dymension
+sudo rm -rf $HOME/dymension
+sed -i "/DYMENSİON_/d" $HOME/.bash_profile
+ ```

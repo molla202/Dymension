@@ -1,3 +1,28 @@
+# Dymension
+![1500x500](https://user-images.githubusercontent.com/91562185/234884978-f1a6b9f1-5939-422c-af5d-ca66a9feb758.jpg)
+
+## Sistem Gereksinimleri
+| Bileşenler | Minimum Gereksinimler | 
+| ------------ | ------------ |
+| CPU |	4|
+| RAM	| 8+ GB |
+| Storage	| 500 GB SSD |
+
+
+- önemli notlar
+   - ben eski roller update edip migrate ettim ama olmadı yeni kurdum
+   - update için
+   - curl -L https://dymensionxyz.github.io/roller/install.sh | bash
+   - zaten ``roller run`` dediğiniz de size migrate dicek ``roller migrate`` yazıcaksınız. eğer olursa  ``roller tx fund-faucet`` bu kod çalışır. olmazsa olmaz :D
+   - Diyelim yeni kurmak zorunda kaldık ``roller config init --interactive`` çıkan adresleri kaydediniz...
+   -  celestia faucet kapalıdır. açalım :D ``https://faucet-arabica-9.celestia-arabica.com/``
+   -  node kurduysanız coin vardır ordan aktarıcaz roller kurunca 3 adres verior 2si dym  celestiayı yukarıda faucetten hallettik dymleride node cüzdandan aktaralım artık ne kadar varsa ufaktan atalım..
+   -  ``dymd tx bank send node-cüzdan-adresi atacağın-dym-adresi 100dym --gas auto --gas-adjustment 1.5 -y``
+   -  şimdide register edelim ``roller tx register``
+   -  şimdide çalıştıralım ``roller run``
+   -  kanal bulunca alttan devamke...
+
+
 * roller kurdunuz kanal buldu mu ? evetse devam edelim
 * faucete gönderme için artık kısa bir kodumuz var deneyelim .
 ```

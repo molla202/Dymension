@@ -60,24 +60,34 @@ nano BURAYA.json
 * logoyu attık jsonu düzenledik.. geriye kaldı bu yaptıklarımızı kendi hesabımıza puşş etmeye puşş nasıl edilir çok puşş bi işlem :D
 
 * githubunuza girin... sağ menuden resmine tıkla setting'e girin
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/72e008f8-fd46-4e8e-8176-7e06e63f2043)
+
 * sol altta developer settinge girelim
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/42b63d38-f3b7-4732-b8d2-3f3015cd7fe3)
+
 * sol menuden ``personel acces token diyelim açılan alt menıden classic diyelim
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/87e561b8-5082-4900-8c8e-9507cd881abd)
+
 * sağ üst menuden generate deyip yine classic seçelim
 * açılan ekranda bi ad verelim alttaki tum kutuları tıklayıp en altaki generateye tıklayalım..
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/6585fe18-8834-43d8-8802-93190208039a)
 
-*çıkan kodu bir yere kaydedin bu bizim şifremiz unutmayın
+* çıkan kodu bir yere kaydedin bu bizim şifremiz unutmayın
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/1a09b406-4501-44e3-82c3-4a3b49e6c38a)
 
 * şimdi sunucumuzda hazırladığımız herseyi gthub repomuza puşşş edelim bize kullanıcı adı sorucak neyse onu yazın sonra şifre sorucak oda yukarıda yaptığımız classic token şeysi  vardıya kod onu yazıyoruz enter dıyoruz ve puş edıyor
+
 ```
 git add .
 git commit -m "added RollApp"
 git push -u origin main
 ```
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/27c38010-cf51-433c-8235-9e1c50b8f0d4)
 
 * eğer hata alırsanız token olusturmada hata yapmısınızdır şöle der
@@ -85,7 +95,44 @@ git push -u origin main
 ![image](https://github.com/molla202/Dymension/assets/91562185/2d66acd5-26a0-4437-a4de-716890ee8218)
 
 * artık githundan bakalım dosya gelmiş mi repoya sayfayı yenile
+
 ![image](https://github.com/molla202/Dymension/assets/91562185/45e20818-d8b7-4691-a2d4-2b6cda0042e2)
+
+* şimdide bu repoya pr çekelim
+
+![image](https://github.com/molla202/Dymension/assets/91562185/95b23072-75df-4ecc-a2a4-ab3b4501bb03)
+
+* sağdan new pull request diyelim
+
+![image](https://github.com/molla202/Dymension/assets/91562185/676ae07a-a218-4b06-b93a-f960d149ce1b)
+
+* create pull request çıkıyor dıyoruz pul puşşş allah ne verdiyse :D sona not falan ekleme falan var yazın bişiler
+
+![image](https://github.com/molla202/Dymension/assets/91562185/697ebde4-a798-407f-bc23-b739f7231bb9)
+
+* daha sonra discorda gidiyoruz...  cr famfam kanalına gidiyoruz
+
+![image](https://github.com/molla202/Dymension/assets/91562185/18b9016b-93ec-4bc5-8123-1bba20a2b5db)
+
+* burası suan kapalı ama açılacak ve buraya $pair molla_34521-1  gibi yazıcaz sizin rollapp idniz neyse onu yazıcaksınız
+
+``$pair BURAYA``
+
+* yöneticilerden biri ayrı kanal açıp size rollapınızın linkini vericek daha sonra prtaldan kendiniz görebilicek ve işlemler yapmak için insanları yonlendirebiliceksiniz. hayırlı olsun
+
+https://portal.dymension.xyz/rollapps
+
+
+NOT: corenode onaylandığın işlem yapın arkadaslar. ibc bolumunden topluluğun gücünü gösterelim...
+
+
+
+
+
+
+
+
+
 
 
 

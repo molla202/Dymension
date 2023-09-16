@@ -14,7 +14,8 @@
    - update için
    - curl -L https://dymensionxyz.github.io/roller/install.sh | bash
    - zaten ``roller run`` dediğiniz de size migrate dicek ``roller migrate`` yazıcaksınız. eğer olursa  ``roller tx fund-faucet`` bu kod çalışır. olmazsa olmaz :D
-   - Diyelim yeni kurmak zorunda kaldık ``roller config init --interactive`` çıkan adresleri kaydediniz...
+   - Diyelim yeni kurmak zorunda kaldık ``roller config init --interactive`` çıkan adresleri kaydediniz... bu arada roller id nizi direk isim yazın mesela ahmet mehmet die sayı çizgi rakam yazmayın kendi eklesin
+   - faucet dicorda açıksa alınız... `$request cüzdan-adresi` kendi coninizi almak için `$request cüzdan-adresiniz rollapp-idniz`
    -  celestia faucet kapalıdır. açalım :D ``https://faucet-arabica-9.celestia-arabica.com/``
    -  node kurduysanız coin vardır ordan aktarıcaz roller kurunca 3 adres verior 2si dym  celestiayı yukarıda faucetten hallettik dymleride node cüzdandan aktaralım artık ne kadar varsa ufaktan atalım..
    -  ``dymd tx bank send node-cüzdan-adresi atacağın-dym-adresi 100dym --gas auto --gas-adjustment 1.5 -y``
@@ -53,7 +54,7 @@ mkdir -p $ROLLAPP_ID/logos
 cd $ROLLAPP_ID && touch $ROLLAPP_ID.json
 ```
 
-* şimdi sunucumuzdaki dosyanın içine logo muzu atıcaz desteklediği uzantılar SVG, PNG, or JPG
+* şimdi sunucumuzdaki dosyanın içine logo muzu atıcaz desteklediği uzantılar SVG, PNG, or JPG attığınız resmide rollap id yapıcaz arkadaslar mesela idmiz molla_456453-1 buysa molla_456453-1.png gibi 50kb üstü kabul etmıyor dosya boyutunu düşürmeniz lazım https://www.resizepixel.com/ buradan yapabilirsiniz
 * winscple yada mobo uzerinden buraya yazan yer sizin rollapp idniz adında klasör  `/root/rollapp-registry/BURAYA/logos/`
 * şimdide yaptığımız ayarlamaları çıktı alalım.
 ```
@@ -63,17 +64,21 @@ roller config export
 
 * bu çıktıyı kaydedelim dursun.
 * şimdide bu olusturduğumuz jsonu düzenleyeceğiz...
-
+```
+cd
+```
+```
 cd rollapp-registry
-
+```
 not: aşağıya buraya yazan yere sizin rollapp idnizi yazacaksınız mesel cd molla_456453-1 gibi idniz neyse o dosyaya giricez.
-
+```
 cd BURAYA
-
+```
 * json adınız rollap id adınız. BURAYA kısmına diyelim rollapp idniz molla_456453-1     nano molla_456453-1.json gibi yazıcaz anliyomusun mubarek... :D
-
+```
 nano BURAYA.json
-
+```
+* şimdi export dediğimizde çıkan çıktıyı kaydetmiştik bi yere ordan kopyalayıp  gerekli değişiklikleri aşağıdaki gibi yapıcaz... tabi içinde zaten yazıyorsa sıkıntı yok
 * Aşağıdaki yerleri bulup ip adresini yazıcaksınız vps'in. sonra ctrl+x y enter dicez kaydedicez...
 
 ``"rpc": "http://IP-ADRES:26657"``
@@ -123,6 +128,8 @@ git push -u origin main
 
 ![image](https://github.com/molla202/Dymension/assets/91562185/45e20818-d8b7-4691-a2d4-2b6cda0042e2)
 
+- Eğer olmuyorsa dosyayı pcnize çekin sonra manuel githuba yükleyin. neden bukadar anlattın derseniz öğrenmekten zarar çıkmaz...
+
 * şimdide bu repoya pr çekelim
 
 ![image](https://github.com/molla202/Dymension/assets/91562185/95b23072-75df-4ecc-a2a4-ab3b4501bb03)
@@ -135,15 +142,17 @@ git push -u origin main
 
 ![image](https://github.com/molla202/Dymension/assets/91562185/697ebde4-a798-407f-bc23-b739f7231bb9)
 
-* daha sonra discorda gidiyoruz...  cr famfam kanalına gidiyoruz
+* daha sonra discorda gidiyoruz...  cr list-your-rollapp kanalına gidiyoruz
 
-![image](https://github.com/molla202/Dymension/assets/91562185/18b9016b-93ec-4bc5-8123-1bba20a2b5db)
+
+![image](https://github.com/Core-Node-Team/Testnet-TR/assets/91562185/f8cf73bb-a2e7-4f12-8c5d-d8d1511d22f6)
+
 
 * burası suan kapalı ama açılacak ve buraya $pair molla_34521-1  gibi yazıcaz sizin rollapp idniz neyse onu yazıcaksınız
 
 ``$pair BURAYA``
 
-* yöneticilerden biri ayrı kanal açıp size rollapınızın linkini vericek daha sonra prtaldan kendiniz görebilicek ve işlemler yapmak için insanları yonlendirebiliceksiniz. hayırlı olsun
+* yöneticilerden biri ayrı kanal açıp size rollapınızın linkini vericek daha sonra prtaldan kendiniz görebilicek ve işlemler yapmak için insanları yonlendirebiliceksiniz. lütfen kanala attııktan sonra sağ tıklayıp alt kanal olusturun ve buraya pr sayfanızı atın  hayırlı olsun
 
 https://portal.dymension.xyz/rollapps
 
